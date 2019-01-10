@@ -102,8 +102,8 @@
 \author{Nicola Krull}         
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
+%für bilder
+\usepackage{subcaption} 
 
 
 
@@ -169,10 +169,28 @@ Für unixartige Systeme sind Containers fortgeschrittene Implementierungen von c
 	Eine Containervirtualisierungstechnologie ist Linux Containers(Abkürzung LXC). Es ist ein Verfahren, welches eine Virtualisierung von Softwaren auf Betriebssystemebene innerhalb des Linux-Kernels generiert. 
 Das Besondere an den Linux Containers ist, dass sie im Vergleich zu herkömmlichen Virtuelle Maschinen, wie zum Beispiel VMWare oder KVM, einzelne Anwendung in virtuellen Umgebugen ausführen können. Ausserdem ist es Möglich ein ganzes Betriebssystem in einem solchen Container zu starten.  \footnote{\label{foot:5} \href{https://www.webhod.de/lxc-und-lxd-was-sind-linux-container}{https://www.webhod.de/lxc-und-lxd-was-sind-linux-container} \bigskip 30.12.2018}  
 %Es gibt zwei Arten von Linux Containers die \textit{privileged Containers} und die \textit{unprivileged Containers}. Die \textit{privileged Containers} sind nicht 
+\pagebreak
 
+\subsubsection{Hypervisor}
+Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine Software, welche virtuelle Maschinen von eiem beliebigen Betriebssystemen aus laufen lassen kann. Es gibt zwei Arten von Hypervisoren.  \footnote{\label{foot:4} \href{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM}{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM} \bigskip 10.1.2019}
 
-
-
+\begin{figure}[!tbp]%ABbildungsverzeichniss link https://www.crisp-research.com/was-ist-ein-hypervisor/ und datum noch hin
+  \centering
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{Bilder/hypervisorTyp1.jpg}
+    \caption{Typ-1-Hypervisor}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{Bilder/hypervisorTyp2.jpg}
+    \caption{Typ-2-Hypervisor}
+  \end{minipage}
+\end{figure}
+	
+	Der Typ-1-Hypervisor auch native oder bare-metal Hypervisor genannt läuft direkt auf der Hardware und benötigt passende Treiber. Dieser Hypervisor benötigt kein vorherige Betriebssystem-Installation. 
+	Der Typ-2-Hypervisorbraucht ein vollständiges Betriebssystem auf dem Hostsystem. Es nutzt die Gerätetreiber des Benutzersystems für den Zugriff auf die Hardware des Hostsystems. 
+	
+	
 	
 	\pagebreak
 	\subsection{Angewendeter Ansatz}
