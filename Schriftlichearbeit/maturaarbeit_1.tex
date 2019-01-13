@@ -190,6 +190,10 @@ Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine 
 	Der Typ-1-Hypervisor auch native oder bare-metal Hypervisor genannt läuft direkt auf der Hardware und benötigt passende Treiber. Dieser Hypervisor benötigt kein vorherige Betriebssystem-Installation. 
 	Der Typ-2-Hypervisorbraucht ein vollständiges Betriebssystem auf dem Hostsystem. Es nutzt die Gerätetreiber des Benutzersystems für den Zugriff auf die Hardware des Hostsystems. 
 	
+	Das benutzen eines Hypervisor ist ein mögliche Sicherheitsansatz, da er virtuelle Umgebungen kreieren kann. Die Vorteile von diesen virtuellen Umgebungen sind, dass sie vollstäding isoliert sind und man kann immer wieder ein weiteres Betriebsystem kreieren oder löschen. Somit würde man ein Shell-Script schreiben, welches automatisch pro User eine virtuelle Umgebung kreiert. In dieser Umgebung würde dann auch die Compilierung stattfinden. Da es in einem virtuellen Betriebsystem stattfinden würde, würde nichts kaput gehen. Man kann dann einfach nachdem der Output übermittelt wurde das Betriebssystem löschen.
+	
+	Ein möglicher Hypervisor ist der KVM. Es steht für Kernel-based Virtual Machine. Der KVM ist seit 2007 in den Linux Betriebtssysteme im Haupt-Kernel integriert. KVM konviert das Linuxbetriebsystem in ein bate-metal Hypervisor (Typ 1). 
+	
 	
 	
 	\pagebreak
