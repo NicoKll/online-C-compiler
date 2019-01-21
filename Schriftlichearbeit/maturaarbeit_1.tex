@@ -106,7 +106,8 @@
 \usepackage{subcaption} 
 
 
-
+\usepackage[]{biblatex}
+\addbibresource{sources.bib}
 
 
 \begin{document}
@@ -132,18 +133,17 @@
 	\subsection{Design}
 	
 	\subsection{Software}
-	Das Ziel des Projektes ist eine dynamische Webseite zu bauen. Eine dynamische Webseite ist eine Webseite bei welcher der Server mit der Webseite kommuniziert.\footnote{\label{foot:1}\href{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch/}{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch} \bigskip 30.12.2018} % Ergänzung möglich  
-	Um eine dynamische Webseite zu bauen benötigt man ein Webframework, welches die Interaktionen zwischen den 			Files steueren kann. Dafür verwendete man das Webframework \textit{Express}. Es ist ein serverseitiges Webframework, welches für die Plattform \textit{Node.js} entwickelt wurde.\footnote{\label{foot:1}\href{https://de.wikipedia.org/wiki/Express.js}{https://de.wikipedia.org/wiki/Express.js} \bigskip 25.10.2018} \textit{Node.js} ist eine open-source, serverseitige Plattform, welche \textit{JavaScript} als Skriptsprache verwendet.\footnote{\label{foot:2}\href{https://de.wikipedia.org/wiki/Node.js}{https://de.wikipedia.org/wiki/Node.js} \bigskip 25.10.2018}	Wenn man eine dynamische Webseite programmiert muss man immer zwischen serverseitigen und clientseitigen Code unterscheiden. Für die serverseitigen Programme verwendet man, die Plattform \textit{Node.js} und auf der Clientenseite läuft \textit{JavaScript}, \textit{HTML} und \textit{CSS}-Code. Dabei verwendet man die Templatesprache \textit{Jade}, welche zur Generierung von \textit{HTML}-Seiten zuständig ist. Es vereinfacht nicht nur die Syntax, sondern es funktion wie anderen Programmiersprachen, somit kann man für den \textit{HTML}-Code Variabeln, If-Abfragen und for-Schleifen benützen. \footnote{\label{foot:3} \href{https://t3n.de/news/jade-638027/}{https://t3n.de/news/jade-638027/} \bigskip 25.10.2018}
+	Das Ziel des Projektes ist eine dynamische Webseite zu bauen. Eine dynamische Webseite ist eine Webseite bei welcher der Server mit der Webseite kommuniziert.\cite{1} % Ergänzung möglich  
+	Für den Bau einer dynamischen Webseite benötigt man ein Webframework, welches die Interaktionen zwischen den 			Files steueren kann. Dafür wird das Webframework \textit{Express} verwendet. Es ist ein serverseitiges Webframework, welches für die Plattform \textit{Node.js} entwickelt wurde.\cite{2} \textit{Node.js} ist eine open-source, serverseitige Plattform, welche \textit{JavaScript} als Skriptsprache verwendet.\cite{3}	Wenn man eine dynamische Webseite programmiert muss man immer zwischen serverseitigen und clientseitigen Code unterscheiden. Für die serverseitigen Programme verwendet man, die Plattform \textit{Node.js} und auf der Clientenseite läuft \textit{JavaScript}, \textit{HTML} und \textit{CSS}-Code. Dabei wird in diesem Fall die Templatesprache \textit{Jade} verwendet, welche zur Generierung von \textit{HTML}-Seiten zuständig ist. Es vereinfacht nicht nur die Syntax, sondern es funktion wie anderen Programmiersprachen, somit kann man für den \textit{HTML}-Code Variabeln, If-Abfragen und for-Schleifen benützen. \cite{4}
 
 \begin{floatingfigure}[r]{11cm}
     \centering
     \includegraphics[width=10cm]{Bilder/MVCexpress.png}
-    \caption{Express Aufbau}
+    \caption{Express Aufbau \cite{5}}
     \label{fig:figlabel}
 \end{floatingfigure}
 
-\textit{Express} kann man in die drei Teile, views, routes und controllers aufteilen. In dem views-Ordner sind die Jade Files abgeschrieben. Diese File sind für das Design der Webseite zuständig. Also wenn man wie zum Beispiel eine Textbox und einen Button auf der Webseite sehen möchte, müsste man in einem \textit{Jade}-file eine Textarea und einen Button kreieren. Durch das coden dieser Elemente hat man eine Textbox und einen Button auf der Webseite aber es würde keine reaktion geben wenn man in die Textboxt hinein schriebt oder den Button drückt. Man möchte den Textinhalt weiterleiten. Dafür benötigtman die HTTP Methoden wie zum Beispiel GET und POST. Die Abkürzung HTTP steht für Hypertext Transfer Protokol und ist zuständig für die Kommunikation zwischen dem Client und dem Server.  \footnote{\label{foot:4} \href{https://www.w3schools.com/tags/ref_httpmethods.asp}{https://www.w3schools.com/tags/ %ref_httpmethods.asp   es kann nicht den UNderscore verarbeiten
-} \bigskip 25.10.2018} All diese HTTP Request werden im routes Ordner bearbeitet und zum Controllers-file weitergeleitet. In den Controllers-Files findet alle Actionen statt. Alles was vom Server berechnet oder ausgeführt werden muss. In meinem Fall wäre das das Compilieren von den Textdaten in der Textbox. Dafür hat man Child Processes  von \textit{Node.js} benutzt. Mit Child Processes können die Terminalbefehle automatisch ausgeführt werden und somit muss man es nicht manuel eintippen. Da man keine Datenbanken für meine Arbeit verwende, ist der gebrauch von Models nicht nötig. 
+\textit{Express} kann man in die drei Teile, views, routes und controllers aufteilen. In dem views-Ordner sind die Jade Files abgeschrieben. Diese File sind für das Design der Webseite zuständig. Also wenn man wie zum Beispiel eine Textbox und einen Button auf der Webseite sehen möchte, müsste man in einem \textit{Jade}-file eine Textarea und einen Button kreieren. Durch das coden dieser Elemente hat man eine Textbox und einen Button auf der Webseite aber es würde keine reaktion geben wenn man in die Textboxt hinein schriebt oder den Button drückt. Man möchte den Textinhalt weiterleiten. Dafür benötigtman die HTTP Methoden wie zum Beispiel GET und POST. Die Abkürzung HTTP steht für Hypertext Transfer Protokol und ist zuständig für die Kommunikation zwischen dem Client und dem Server.\cite{6} All diese HTTP Request werden im routes Ordner bearbeitet und zum Controllers-file weitergeleitet. In den Controllers-Files findet alle Actionen statt. Alles was vom Server berechnet oder ausgeführt werden muss. In meinem Fall wäre das das Compilieren von den Textdaten in der Textbox. Dafür hat man Child Processes  von \textit{Node.js} benutzt. Mit Child Processes können die Terminalbefehle automatisch ausgeführt werden und somit muss man es nicht manuel eintippen. Da man keine Datenbanken für meine Arbeit verwende, ist der gebrauch von Models nicht nötig. 
 
 	
 	\pagebreak
@@ -174,14 +174,14 @@ Das Besondere an den Linux Containers ist, dass sie im Vergleich zu herkömmlich
 \subsubsection{Hypervisor}
 Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine Software, welche virtuelle Maschinen von eiem beliebigen Betriebssystemen aus laufen lassen kann. Es gibt zwei Arten von Hypervisoren.  \footnote{\label{foot:4} \href{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM}{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM} \bigskip 10.1.2019}
 
-\begin{figure}[!tbp]%ABbildungsverzeichniss link https://www.crisp-research.com/was-ist-ein-hypervisor/ und datum noch hin
+\begin{figure}[H]%ABbildungsverzeichniss link https://www.crisp-research.com/was-ist-ein-hypervisor/ und datum noch hin
   \centering
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[H]{0.4\textwidth}
     \includegraphics[width=\textwidth]{Bilder/hypervisorTyp1.jpg}
     \caption{Typ-1-Hypervisor}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[H]{0.4\textwidth}
     \includegraphics[width=\textwidth]{Bilder/hypervisorTyp2.jpg}
     \caption{Typ-2-Hypervisor}
   \end{minipage}
@@ -190,14 +190,19 @@ Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine 
 	Der Typ-1-Hypervisor auch native oder bare-metal Hypervisor genannt läuft direkt auf der Hardware und benötigt passende Treiber. Dieser Hypervisor benötigt kein vorherige Betriebssystem-Installation. 
 	Der Typ-2-Hypervisorbraucht ein vollständiges Betriebssystem auf dem Hostsystem. Es nutzt die Gerätetreiber des Benutzersystems für den Zugriff auf die Hardware des Hostsystems. 
 	
-	Das benutzen eines Hypervisor ist ein mögliche Sicherheitsansatz, da er virtuelle Umgebungen kreieren kann. Die Vorteile von diesen virtuellen Umgebungen sind, dass sie vollstäding isoliert sind und man kann immer wieder ein weiteres Betriebsystem kreieren oder löschen. Somit würde man ein Shell-Script schreiben, welches automatisch pro User eine virtuelle Umgebung kreiert. In dieser Umgebung würde dann auch die Compilierung stattfinden. Da es in einem virtuellen Betriebsystem stattfinden würde, würde nichts kaput gehen. Man kann dann einfach nachdem der Output übermittelt wurde das Betriebssystem löschen.
+	Das benutzen eines Hypervisor ist ein mögliche Sicherheitsansatz, da er virtuelle Umgebungen kreieren kann. Die Vorteile von diesen virtuellen Umgebungen sind, dass sie vollstäding isoliert sind und man kann immer wieder ein weiteres Betriebsystem kreieren oder löschen. Somit würde man ein Shell-Script schreiben, welches automatisch pro User eine virtuelle Umgebung kreiert. In dieser Umgebung würde dann auch die Compilierung stattfinden. Da es in einem virtuellen Betriebsystem stattfinden würde, würde nichts kaputt gehen. Nach dem Kompilieren, würde das Betriebsystem den Output in einen Ordner legen welcher das Hostsystem mit dem virtuellen Betriebsystem teilt. Sobald Output übermittelt wurde, wird das virtuele Betriebssystem gelöschen.
 	
-	Ein möglicher Hypervisor ist der KVM. Es steht für Kernel-based Virtual Machine. Der KVM ist seit 2007 in den Linux Betriebtssysteme im Haupt-Kernel integriert. KVM konviert das Linuxbetriebsystem in ein bate-metal Hypervisor (Typ 1). 
+	Ein möglicher Hypervisor ist der KVM. Es steht für Kernel-based Virtual Machine. Der KVM ist seit 2007 in den Linux Betriebtssysteme im Haupt-Kernel integriert.% KVM konviert das Linuxbetriebsystem in ein bate-metal Hypervisor (Typ 1). 
+	Damit es die Virtualisierung unterstützt muss es auf der x86 Hardware installiert sein.
 	
+	%https://www.redhat.com/de/topics/virtualization/what-is-KVM link
 	
+	\subsubsection{}
+	Eine andere Lösung wäre ein System in welchen die Dateiberechtigungen verändert wird und die eingehenden und ausgehenden Ports schliessen würde. In Unix Systeme kann man mit dem Befehl chmod die Berechtigungen von Ordnern und Dateien verändern. Dabei gibt es drei Gruppen Eigentümer(user), Gruppe(group) und Sonstige(others). Für jede dieser Gruppen kann man drei verschiedene grund Rechte bestimmen. Das erste Recht r steht für den englischen Begriff read und bewirkt dass man das Recht hat das File zu lesen. Das zweite Recht wird mit dem Buchstaben w ausgedrückt. Es steht für write und ermöglicht dem Benutzer Dateien zu schreiben. Das heisst er darf Dateien und Unterverzeichnisse erstellen, löschen, ändern und die Dateirechte der Unterverzeichnisse verändern. Der letzte Buchstabe ist x und steht für execute. Diese Funnktion führt Dateien als Programme aus. Im Falle eines Verzeichnis hätte man die Berechtigung in das Verzeichnis hineinzugehen und so die Dateien und Unterverzeichnisse zu erreichen. Meisst benutzt man eine kombination der drei Berechtigungsfunktionnen. Die einzelnen Berechtigungsfunktionen sind zu einer Zahl angeordnet. Das x ist gleich Eins, das w hat den Wert 2 und das r den Wert 4. Wenn man eine kombination der drei Berechtigungen möchte muss man sie addieren.
 	
 	\pagebreak
 	\subsection{Angewendeter Ansatz}
+	
 	\pagebreak
 	\section{Textfunktionen}
 	\subsection{Syntax-Highlighting}
@@ -207,6 +212,26 @@ Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine 
 	\pagebreak
 	\listoffigures
 	
+	
+	\begin{thebibliography}{999}
+\bibitem{1} 
+\href{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch/}{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch} \bigskip 30.12.2018
+ 
+\bibitem{2} 
+\href{https://de.wikipedia.org/wiki/Express.js}{https://de.wikipedia.org/wiki/Express.js} \bigskip 25.10.2018
+ 
+\bibitem{3} 
+\href{https://de.wikipedia.org/wiki/Node.js}{https://de.wikipedia.org/wiki/Node.js} \bigskip 25.10.2018
+
+\bibitem{4}
+\href{https://t3n.de/news/jade-638027/}{https://t3n.de/news/jade-638027/} \bigskip 25.10.2018
+
+\bibitem{5}
+\href{https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes}{https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes} \bigskip 19.01.2019
+
+\bibitem{6}
+\href{https://www.w3schools.com/tags/ref_httpmethods.asp}{https://www.w3schools.com/tags/ref_httpmethods.asp}%link geht noch nicht
+ \bigskip 25.10.2018}
 	
 %%	\printbibliography 
 %%	\listoffigures
