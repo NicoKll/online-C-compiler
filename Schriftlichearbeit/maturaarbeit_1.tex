@@ -133,46 +133,56 @@
 	\subsection{Design}
 	
 	\subsection{Software}
-	Das Ziel des Projektes ist eine dynamische Webseite zu bauen. Eine dynamische Webseite ist eine Webseite bei welcher der Server mit der Webseite kommuniziert.\cite{1} % Ergänzung möglich  
-	Für den Bau einer dynamischen Webseite benötigt man ein Webframework, welches die Interaktionen zwischen den 			Files steueren kann. Dafür wird das Webframework \textit{Express} verwendet. Es ist ein serverseitiges Webframework, welches für die Plattform \textit{Node.js} entwickelt wurde.\cite{2} \textit{Node.js} ist eine open-source, serverseitige Plattform, welche \textit{JavaScript} als Skriptsprache verwendet.\cite{3}	Wenn man eine dynamische Webseite programmiert muss man immer zwischen serverseitigen und clientseitigen Code unterscheiden. Für die serverseitigen Programme verwendet man, die Plattform \textit{Node.js} und auf der Clientenseite läuft \textit{JavaScript}, \textit{HTML} und \textit{CSS}-Code. Dabei wird in diesem Fall die Templatesprache \textit{Jade} verwendet, welche zur Generierung von \textit{HTML}-Seiten zuständig ist. Es vereinfacht nicht nur die Syntax, sondern es funktion wie anderen Programmiersprachen, somit kann man für den \textit{HTML}-Code Variabeln, If-Abfragen und for-Schleifen benützen. \cite{4}
+	Das Ziel des Projektes ist eine dynamische Webseite zu bauen. Eine dynamische Webseite ist eine Webseite bei welcher der Server mit der Webseite kommuniziert.\cite{01} % Ergänzung möglich  
+	Für den Bau einer dynamischen Webseite benötigt man ein Webframework, welches die Interaktionen zwischen den 			Files steueren kann. Dafür wird das Webframework \textit{Express} verwendet. Es ist ein serverseitiges Webframework, welches für die Plattform \textit{Node.js} entwickelt wurde.\cite{02} \textit{Node.js} ist eine open-source, serverseitige Plattform, welche \textit{JavaScript} als Skriptsprache verwendet.\cite{03}	Wenn man eine dynamische Webseite programmiert muss man immer zwischen serverseitigen und clientseitigen Code unterscheiden. Für die serverseitigen Programme verwendet man, die Plattform \textit{Node.js} und auf der Clientenseite läuft \textit{JavaScript}, \textit{HTML} und \textit{CSS}-Code. Dabei wird in diesem Fall die Templatesprache \textit{Jade} verwendet, welche zur Generierung von \textit{HTML}-Seiten zuständig ist. Es vereinfacht nicht nur die Syntax, sondern es funktion wie anderen Programmiersprachen, somit kann man für den \textit{HTML}-Code Variabeln, If-Abfragen und for-Schleifen benützen. \cite{04}
 
 \begin{floatingfigure}[r]{11cm}
     \centering
     \includegraphics[width=10cm]{Bilder/MVCexpress.png}
-    \caption{Express Aufbau \cite{5}}
+    \caption{Express Aufbau \cite{05}}
     \label{fig:figlabel}
 \end{floatingfigure}
 
-\textit{Express} kann man in die drei Teile, views, routes und controllers aufteilen. In dem views-Ordner sind die Jade Files abgeschrieben. Diese File sind für das Design der Webseite zuständig. Also wenn man wie zum Beispiel eine Textbox und einen Button auf der Webseite sehen möchte, müsste man in einem \textit{Jade}-file eine Textarea und einen Button kreieren. Durch das coden dieser Elemente hat man eine Textbox und einen Button auf der Webseite aber es würde keine reaktion geben wenn man in die Textboxt hinein schriebt oder den Button drückt. Man möchte den Textinhalt weiterleiten. Dafür benötigtman die HTTP Methoden wie zum Beispiel GET und POST. Die Abkürzung HTTP steht für Hypertext Transfer Protokol und ist zuständig für die Kommunikation zwischen dem Client und dem Server.\cite{6} All diese HTTP Request werden im routes Ordner bearbeitet und zum Controllers-file weitergeleitet. In den Controllers-Files findet alle Actionen statt. Alles was vom Server berechnet oder ausgeführt werden muss. In meinem Fall wäre das das Compilieren von den Textdaten in der Textbox. Dafür hat man Child Processes  von \textit{Node.js} benutzt. Mit Child Processes können die Terminalbefehle automatisch ausgeführt werden und somit muss man es nicht manuel eintippen. Da man keine Datenbanken für meine Arbeit verwende, ist der gebrauch von Models nicht nötig. 
+\textit{Express} kann man in die drei Teile, views, routes und controllers aufteilen. In dem views-Ordner sind die Jade Files abgeschrieben. Diese File sind für das Design der Webseite zuständig. Also wenn man wie zum Beispiel eine Textbox und einen Button auf der Webseite sehen möchte, müsste man in einem \textit{Jade}-file eine Textarea und einen Button kreieren. Durch das coden dieser Elemente hat man eine Textbox und einen Button auf der Webseite aber es würde keine reaktion geben wenn man in die Textboxt hinein schriebt oder den Button drückt. Man möchte den Textinhalt weiterleiten. Dafür benötigtman die HTTP Methoden wie zum Beispiel GET und POST. Die Abkürzung HTTP steht für Hypertext Transfer Protokol und ist zuständig für die Kommunikation zwischen dem Client und dem Server.\cite{06} All diese HTTP Request werden im routes Ordner bearbeitet und zum Controllers-file weitergeleitet. In den Controllers-Files findet alle Actionen statt. Alles was vom Server berechnet oder ausgeführt werden muss. In meinem Fall wäre das das Compilieren von den Textdaten in der Textbox. Dafür hat man Child Processes  von \textit{Node.js} benutzt. Mit Child Processes können die Terminalbefehle automatisch ausgeführt werden und somit muss man es nicht manuel eintippen. Da man keine Datenbanken für meine Arbeit verwende, ist der gebrauch von Models nicht nötig. 
 
 	
 	\pagebreak
 	\section{Security}
 	\subsection{Sicherheitsprobleme}
 	\subsection{Mögliche Sicherheitsansätze}
+	
+		\subsubsection{geplannter Ansatz}
+	Eine andere Lösung wäre ein System in welchen die Dateiberechtigungen verändert wird und die eingehenden und ausgehenden Ports schliessen würde. In Unix Systeme kann man mit dem Befehl chmod die Berechtigungen von Ordnern und Dateien verändern. Dabei gibt es drei Gruppen Eigentümer(user), Gruppe(group) und Sonstige(others). Für jede dieser Gruppen kann man drei verschiedene grund Rechte bestimmen. Das erste Recht \textbf{r} steht für den englischen Begriff read und bewirkt dass man das Recht hat das File zu lesen. Das zweite Recht wird mit dem Buchstaben \textbf{w} ausgedrückt. Es steht für write und ermöglicht dem Benutzer Dateien zu schreiben. Das heisst er darf Dateien und Unterverzeichnisse erstellen, löschen, ändern und die Dateirechte der Unterverzeichnisse verändern. Der letzte Buchstabe ist \textbf{x} und steht für execute. Diese Funnktion führt Dateien als Programme aus. Im Falle eines Verzeichnis hätte man die Berechtigung in das Verzeichnis hineinzugehen und so die Dateien und Unterverzeichnisse zu erreichen. Meisst benutzt man eine kombination der drei Berechtigungsfunktionnen. Die einzelnen Berechtigungsfunktionen sind zu einer Zahl angeordnet. Das \textbf{x} ist gleich eins, das \textbf{w} hat den Wert zwei und das \textbf{r} den Wert vier. Wenn man eine kombination der drei Berechtigungen möchte muss man sie addieren. Im Falle, dass der  Benutzer alles machen möchte, also lesen, schreiben und ausführen muss man die Berechtigung auf die Nummer sieben legen, da 1(\textbf{x}) + 2(\textbf{w}) + 4(\textbf{r}) = 7 ist. 
+	
 	\subsubsection{chroot}
 	
-	Chroot steht für "change root" und es ist ein Programm welches das Rootverzeichnis für Unixsysteme ändern kann.\footnote{\label{foot:1} \href{https://en.wikipedia.org/wiki/Chroot}{https://en.wikipedia.org/wiki/Chroot} \bigskip 30.12.2018} Unix ist ein Betriebssystem, welches in den sechziger Jahren entwickelt wurde. Viele Betriebsysteme basieren auf diesem System, unteranderem das macOS, das iOS und die Linux Betriebsysteme, dazu gehört auch das Betriebsystem Android. \footnote{\label{foot:2} \href{https://de.wikipedia.org/wiki/Unix}{https://de.wikipedia.org/wiki/Unix} \bigskip 30.12.2018}  Es generiert eine geschlossene Umgebung namens chroot jail. Diese Umgebung erlaubt den Zugriff auf  Files und Befehle ausserhalb dieses Ordners nicht. Somit kann der Users nur auf diesem bestimmten Breich des Servers zugreiffen und somit keinen Schaden an dem Server anrichten. \footnote{\label{foot:3} \href{https://wiki.archlinux.org/index.php/Chroot}{https://wiki.archlinux.org/index.php/Chroot} \bigskip 30.12.2018}
-		
-
+	Chroot steht für "change root" und es ist ein Programm welches das Rootverzeichnis für Unixsysteme ändern kann.\cite{07} Unix ist ein Betriebssystem, welches in den sechziger Jahren entwickelt wurde. Viele Betriebsysteme basieren auf diesem System, unteranderem das macOS, das iOS und die Linux Betriebsysteme, dazu gehört auch das Betriebsystem Android.\cite{08} Es generiert eine geschlossene Umgebung namens chroot jail. Diese Umgebung erlaubt den Zugriff auf  Files und Befehle ausserhalb dieses Ordners nicht. Somit kann der Users nur auf diesem bestimmten Breich des Servers zugreiffen und somit keinen Schaden an dem Server anrichten.\cite{09}	
 	
+\pagebreak	
 	
 	\subsubsection{Containervirtualisierung}
-	Containervirtualisierung ist ein Verfahren, welches sich auf eine Betriebssystemsfunktion bezieht, bei der der Kernel die Erstellung von multiplen isolierende User-Space Instanzen erlaubt. Diese erstellten Instanzen werden Containers gennant. \footnote{\label{foot:4} \href{https://en.wikipedia.org/wiki/Operating-system-level_virtualization}{https://en.wikipedia.org/wiki/Operating-system-level_virtualization} \bigskip 30.12.2018} 
-%_funktioniert nicht in href
-Ein Kernel ist die tiefste Softwareschicht eines Betriebsystem. Der Kernel ist zuständig für die Prozess- und Datenorganisation. Ausserdem kann der Kernel direkt auf die Hardware zugreifen.
-% hyperlink mit () geht nicht	\footnote{\label{foot:3} \href{https://de.wikipedia.org/wiki/Kernel_(Betriebssystem) }{https://de.wikipedia.org/wiki/Kernel_(Betriebssystem) } \bigskip 30.12.2018} 
-Die virtuelle Speicherverwaltung wird in User-Space und Kernel-Space unterteilt. Der User-Space ist der Ort an dem die  Anwendungssoftwaren ausgeführt werden. \footnote{\label{foot:6} \href{https://en.wikipedia.org/wiki/User_space}{https://en.wikipedia.org/wiki/User_space} \bigskip 31.12.2018} 
+	Containervirtualisierung ist ein Verfahren, welches sich auf eine Betriebssystemsfunktion bezieht, bei der der Kernel die Erstellung von multiplen isolierende User-Space Instanzen erlaubt. Diese erstellten Instanzen werden Containers gennant.\cite{10} Ein Kernel ist die tiefste Softwareschicht eines Betriebsystem. Der Kernel ist zuständig für die Prozess- und Datenorganisation. Ausserdem kann der Kernel direkt auf die Hardware zugreifen.\cite{11} Die virtuelle Speicherverwaltung wird in User-Space und Kernel-Space unterteilt. Der User-Space ist der Ort an dem die  Anwendungssoftwaren ausgeführt werden. \footnote{\label{foot:6} \href{https://en.wikipedia.org/wiki/User_space}{https://en.wikipedia.org/wiki/User_space} \bigskip 31.12.2018} 
 Der Unterschied zwischen einem Programm welches in einem Container und eines das von einem Betriebssystem ausgeführt wurde ist, dass das Programm vom OS aus alle Elmente des Betriebssystem zur Verfügung hat, während das File im Container nur auf die Informationen innerhalb des Containers zugreifen kann. Da mann komplett isoliert ist muss man einige Elemnte wie zum Beispiel Libaries für die Programme, die in diesem Container ausgeführt werden, hinzufügen. 
 Für unixartige Systeme sind Containers fortgeschrittene Implementierungen von chroot.\footnote{\label{foot:4} \href{https://en.wikipedia.org/wiki/Operating-system-level_virtualization}{https://en.wikipedia.org/wiki/Operating-system-level_virtualization} \bigskip 30.12.2018} 
 	
 	Eine Containervirtualisierungstechnologie ist Linux Containers(Abkürzung LXC). Es ist ein Verfahren, welches eine Virtualisierung von Softwaren auf Betriebssystemebene innerhalb des Linux-Kernels generiert. 
 Das Besondere an den Linux Containers ist, dass sie im Vergleich zu herkömmlichen Virtuelle Maschinen, wie zum Beispiel VMWare oder KVM, einzelne Anwendung in virtuellen Umgebugen ausführen können. Ausserdem ist es Möglich ein ganzes Betriebssystem in einem solchen Container zu starten.  \footnote{\label{foot:5} \href{https://www.webhod.de/lxc-und-lxd-was-sind-linux-container}{https://www.webhod.de/lxc-und-lxd-was-sind-linux-container} \bigskip 30.12.2018}  
 %Es gibt zwei Arten von Linux Containers die \textit{privileged Containers} und die \textit{unprivileged Containers}. Die \textit{privileged Containers} sind nicht 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=12cm]{Bilder/ContainerArchitektur.png}
+    \caption{Architektur von zwei Containertechnologien \cite{15}}
+    \label{fig:figlabel}
+\end{figure}
+
+
+Eine weitere Containervirtualisierungstechnologie ist Docker. Docker ist eines der bekanntesten Containervirtualisierungsarten. Früher basierte es auf dem LXC System. Man stellte dies jedoch ein und ersetzte den Teil der auf dem LXC System basierte durch eine eigene Implementierung names libcontainer. Genauergenommen ist es die Bibliothek liblxc (siehe Kapitel 4.2.5) die durch den libcontainer ersetzt wurde. Die liblxc Bibliothek wird immernoch von den Linux Containern eingesetzt.  Im Linux Kernel sind praktisch alle Containertechnologien gleich aufgebaut. Dazu gehören die Kernel-Funktionen cgroups und Namespaces. Cgroups, auch Control Groups genannt, ist ein Verfahren welches die Ressourcen verwaltet. Diese Systemsoftware führt dazu das der Container nur eine begrenzte Menge an Speicher, Rechenleistung und Disk I/O zur Verfügung hat. Sonst würde er die ganzen Ressourcen für sich alleine beansprechen. Unter Disk I/O versteht man die Eingabe(Input) und Ausgabe(Output) Vorgänge einer physischen Festplatte. Wenn man eine Datei von der Festplatte lesen möchte muss der Prozessor warten bis die Datei gelesen wurde. Das selbe gilt auch fürs Schreiben. \cite{20} Die Systemsoftware Namespace benötigt man um die Prozesse eines Containers zu verbegen. Ansonsten könnte man über einen weiteren kreierten Container Informationen über die Prozesse eines anderen Containers erhalten.\cite{21} SELinux und APPArmor sind Mandatory Acces Control(MAC) Systeme. MAC Systeme sind zuständig für Zugriffe von Benutzer und Prozessen auf  einzelnen Objekte. Wenn ein Zugriff nicht erlaubt ist wird er vom MAC System unterbunden.\cite{22} 
 \pagebreak
 
 \subsubsection{Hypervisor}
 Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine Software, welche virtuelle Maschinen von eiem beliebigen Betriebssystemen aus laufen lassen kann. Es gibt zwei Arten von Hypervisoren.  \footnote{\label{foot:4} \href{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM}{https://www.searchdatacenter.de/definition/Hypervisor-Virtual-Machine-Monitor-VMM} \bigskip 10.1.2019}
+
 
 \begin{figure}[H]%ABbildungsverzeichniss link https://www.crisp-research.com/was-ist-ein-hypervisor/ und datum noch hin
   \centering
@@ -197,8 +207,8 @@ Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine 
 	
 	%https://www.redhat.com/de/topics/virtualization/what-is-KVM link
 	
-	\subsubsection{}
-	Eine andere Lösung wäre ein System in welchen die Dateiberechtigungen verändert wird und die eingehenden und ausgehenden Ports schliessen würde. In Unix Systeme kann man mit dem Befehl chmod die Berechtigungen von Ordnern und Dateien verändern. Dabei gibt es drei Gruppen Eigentümer(user), Gruppe(group) und Sonstige(others). Für jede dieser Gruppen kann man drei verschiedene grund Rechte bestimmen. Das erste Recht r steht für den englischen Begriff read und bewirkt dass man das Recht hat das File zu lesen. Das zweite Recht wird mit dem Buchstaben w ausgedrückt. Es steht für write und ermöglicht dem Benutzer Dateien zu schreiben. Das heisst er darf Dateien und Unterverzeichnisse erstellen, löschen, ändern und die Dateirechte der Unterverzeichnisse verändern. Der letzte Buchstabe ist x und steht für execute. Diese Funnktion führt Dateien als Programme aus. Im Falle eines Verzeichnis hätte man die Berechtigung in das Verzeichnis hineinzugehen und so die Dateien und Unterverzeichnisse zu erreichen. Meisst benutzt man eine kombination der drei Berechtigungsfunktionnen. Die einzelnen Berechtigungsfunktionen sind zu einer Zahl angeordnet. Das x ist gleich Eins, das w hat den Wert 2 und das r den Wert 4. Wenn man eine kombination der drei Berechtigungen möchte muss man sie addieren.
+	\subsubsection{liblxc}
+	
 	
 	\pagebreak
 	\subsection{Angewendeter Ansatz}
@@ -214,25 +224,53 @@ Bei Hypervisoren, auch Virtual Machine Monitor gennant, handelt es sich um eine 
 	
 	
 	\begin{thebibliography}{999}
-\bibitem{1} 
+\bibitem{01} 
 \href{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch/}{https://blog.kompaktdesign.com/webdesign/statisch-vs-dynamisch} \bigskip 30.12.2018
  
-\bibitem{2} 
+\bibitem{02} 
 \href{https://de.wikipedia.org/wiki/Express.js}{https://de.wikipedia.org/wiki/Express.js} \bigskip 25.10.2018
  
-\bibitem{3} 
+\bibitem{03} 
 \href{https://de.wikipedia.org/wiki/Node.js}{https://de.wikipedia.org/wiki/Node.js} \bigskip 25.10.2018
 
-\bibitem{4}
+\bibitem{04}
 \href{https://t3n.de/news/jade-638027/}{https://t3n.de/news/jade-638027/} \bigskip 25.10.2018
 
-\bibitem{5}
+\bibitem{05}
 \href{https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes}{https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes} \bigskip 19.01.2019
+%%felhler bei hyperlink
 
-\bibitem{6}
+\bibitem{06}
 \href{https://www.w3schools.com/tags/ref_httpmethods.asp}{https://www.w3schools.com/tags/ref_httpmethods.asp}%link geht noch nicht
  \bigskip 25.10.2018}
+ 
+ \bibitem{07}
+ \href{https://en.wikipedia.org/wiki/Chroot}{https://en.wikipedia.org/wiki/Chroot} \bigskip 30.12.2018
+ 
+ \bibitem{08}
+ \href{https://de.wikipedia.org/wiki/Unix}{https://de.wikipedia.org/wiki/Unix} \bigskip 30.12.2018
+ 
+ \bibitem{09}
+ \href{https://wiki.archlinux.org/index.php/Chroot}{https://wiki.archlinux.org/index.php/Chroot} \bigskip 30.12.2018
+ 
+ \bibitem{10}
+ \href{https://en.wikipedia.org/wiki/Operating-system-level_virtualization}{https://en.wikipedia.org/wiki/Operating-system-level_virtualization} \bigskip 30.12.2018
+ %link geht noch nicht
+ 
+ \bibitem{11}
+ \href{https://de.wikipedia.org/wiki/Kernel_(Betriebssystem) }{https://de.wikipedia.org/wiki/Kernel_(Betriebssystem) } \bigskip 30.12.2018
+
+\bibitem{15}
+	 \href{https://robin.io/blog/containers-deep-dive-lxc-vs-docker-comparison/}{https://robin.io/blog/containers-deep-dive-lxc-vs-docker-comparison/} \bigskip 23.01.2019
+	 
+\bibitem{20}
+	 \href{http://blog.scoutapp.com/articles/2011/02/10/understanding-disk-i-o-when-should-you-be-worried}{http://blog.scoutapp.com/articles/2011/02/10/understanding-disk-i-o-when-should-you-be-worried} \bigskip 23.01.2019
 	
+\bibitem{21}
+	 \href{https://jaxenter.de/docker-einfuehrung-linux-basics-62049/6}{https://jaxenter.de/docker-einfuehrung-linux-basics-62049/6} \bigskip 23.01.2019
+
+\bibitem{22}
+	 \href{https://www.admin-magazin.de/Das-Heft/2009/03/Mandatory-Access-Control-mit-Smack}{https://www.admin-magazin.de/Das-Heft/2009/03/Mandatory-Access-Control-mit-Smack} \bigskip 23.01.2019
 %%	\printbibliography 
 %%	\listoffigures
 
