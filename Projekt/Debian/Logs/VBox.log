@@ -1,0 +1,26 @@
+VirtualBox VM 5.1.38_Ubuntu r122592 linux.amd64 (Jul 10 2018 10:40:22) release log
+00:00:00.271067 Log opened 2019-02-02T01:32:59.307385000Z
+00:00:00.271068 Build Type: release
+00:00:00.271070 OS Product: Linux
+00:00:00.271071 OS Release: 4.8.0-53-generic
+00:00:00.271072 OS Version: #56~16.04.1-Ubuntu SMP Tue May 16 01:18:56 UTC 2017
+00:00:00.271087 DMI Product Name: 81CU
+00:00:00.271091 DMI Product Version: Lenovo YOGA 730-15IKB
+00:00:00.271122 Host RAM: 15770MB (15.4GB) total, 3914MB (3.8GB) available
+00:00:00.271125 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.271126 Process ID: 32323
+00:00:00.271126 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.274874 Installed Extension Packs:
+00:00:00.274882   VNC (Version: 5.1.38 r122592; VRDE Module: VBoxVNC)
+00:00:00.275343 Console: Machine state changed to 'Starting'
+00:00:00.275476 Qt version: 5.5.1
+00:00:00.275485 X11 Window Manager code: 5
+00:00:00.276967 Console: Machine state changed to 'PoweredOff'
+00:00:00.278312 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:00.279969 X Server details: vendor: The X.Org Foundation, release: 11804000, protocol version: 11.0, display string: :0
+00:00:00.279982 Using XKB for keycode to scan code conversion
+00:00:00.286900 Power up failed (vrc=VINF_SUCCESS, rc=VBOX_E_INVALID_OBJECT_STATE (0X80BB0007))
+00:00:00.288182 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 0x0 x 2048x1125
+00:00:00.610341 GUI: UIMachineViewNormal::resendSizeHint: Restoring guest size-hint for screen 0 to 800x600
+00:00:00.610532 ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={02326f63-bcb3-4481-96e0-30d1c2ee97f6} aComponent={DisplayWrap} aText={The console is not powered up}, preserve=false aResultDetail=0
+00:00:00.610684 GUI: Aborting startup due to power up progress issue detected...
